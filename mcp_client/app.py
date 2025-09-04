@@ -12,6 +12,7 @@ from langchain_mcp_adapters.client import MultiServerMCPClient
 from langchain_mcp_adapters.tools import load_mcp_tools
 from langchain_mcp_adapters.prompts import load_mcp_prompt
 import asyncio
+import dotenv
 
 client = MultiServerMCPClient(
     {
@@ -31,6 +32,8 @@ client = MultiServerMCPClient(
 )
 
 import os
+
+dotenv.load_dotenv()
 
 async def create_graph(math_session, bmi_session):
     # llm = ChatGoogleGenerativeAI(model="gemini-2.0-flash", temperature=0, api_key=os.getenv("GOOGLE_API_KEY"))
