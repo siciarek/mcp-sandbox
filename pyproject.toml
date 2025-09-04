@@ -9,5 +9,6 @@ dependencies = [
     "langchain",
     "langgraph",
     "langchain-mcp-adapters",
-    "langchain-google-genai"
+    "langchain-google-genai",
+    "lanchain-openai~=0.2.14"
 ]

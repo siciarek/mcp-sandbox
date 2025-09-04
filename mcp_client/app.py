@@ -3,6 +3,7 @@ from typing_extensions import TypedDict
 from typing import Annotated
 from langchain.prompts import ChatPromptTemplate, MessagesPlaceholder
 from langchain_google_genai import ChatGoogleGenerativeAI
+from lanchain_openai.chat_models.azure import AzureChatOpenAI
 from langgraph.prebuilt import tools_condition, ToolNode
 from langgraph.graph import StateGraph, START, END
 from langgraph.graph.message import AnyMessage, add_messages
@@ -32,7 +33,11 @@ client = MultiServerMCPClient(
 import os
 
 async def create_graph(math_session, bmi_session):
-    llm = ChatGoogleGenerativeAI(model="gemini-2.0-flash", temperature=0, api_key=os.getenv("GOOGLE_API_KEY"))
+    # llm = ChatGoogleGenerativeAI(model="gemini-2.0-flash", temperature=0, api_key=os.getenv("GOOGLE_API_KEY"))
+
+    llm = AzureChatOpenAI(
+        azure_deployment=os.environ.get("AZURE_OPENAI_DEPLOYMENT_NAME"),
+    )
 
     math_tools = await load_mcp_tools(math_session)
     bmi_tools = await load_mcp_tools(bmi_session)
