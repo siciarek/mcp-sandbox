@@ -3,7 +3,7 @@ from typing_extensions import TypedDict
 from typing import Annotated
 from langchain.prompts import ChatPromptTemplate, MessagesPlaceholder
 from langchain_google_genai import ChatGoogleGenerativeAI
-from lanchain_openai.chat_models.azure import AzureChatOpenAI
+from langchain_openai.chat_models.azure import AzureChatOpenAI
 from langgraph.prebuilt import tools_condition, ToolNode
 from langgraph.graph import StateGraph, START, END
 from langgraph.graph.message import AnyMessage, add_messages
