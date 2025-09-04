@@ -7,7 +7,10 @@ The following is and istruction how to setup and run the app.
 
 ```bash
 make setup
+cp .env.dist .env
 ```
+
+update variables in `.env` file.
 
 # Run server
 
